@@ -1,14 +1,51 @@
 public class Test {
-    public static void main(String[] args) {
-        double test1= 85.5;
-        double test2= 74.9;
-        double test3= 98.6;
-        double average=(test1+test2+test3)/3;
+    private double ave;
+    private int count;
+    private int score;
+    private int sum;
+    Test(double newAve, int newCount, int newScore, int newSum){
+            this.setAve(newAve);
+            this.setCount(newCount);
+            this.setScore(newScore);
+            this.setSum(newSum);
+    }
+    //setters
+    public void setAve(double newAve){
+        this.ave=newAve;
+    }
+    public void setCount(int newCount){
+        this.count=newCount;
+    }
+    public void setScore(int newScore){
+        this.score=newScore;
+    }
+    public void setSum(int newSum) {
+        this.sum = newSum;
+    }
+    //get
+    public double getAve(){
+        return this.ave;
+    }
+    public double getCount(){
+        return this.count;
+    }
+    public double getScore(){
+        return this.score;
+    }
+    public int getSum() {
+        return this.sum;
+    }
+    public void getAverage(){
+        if (count>0){
+        this.ave = (double) sum / count;
+        this.ave = Double.parseDouble(String.format("%.2f", this.ave));}
+        else{
+            this.ave=0.0;
+        }
 
-        System.out.println("Test score 1: "+ test1);
-        System.out.println("Test score 2: " + test2);
-        System.out.println("Test score 3: " + test3);
-        System.out.println("The average of 3 test scores is:" + average);
-        
+    }
+    public String toString(){
+        return "The average of the " + count + 
+        " scores entered is " + ave;
     }
 }
