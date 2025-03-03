@@ -9,11 +9,24 @@ public class Runner {
         Calc myCalculator = new Calc();
         //get user input for two numbers
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please enter the first number: ");
+        
+        
+        
+        System.out.print("Please enter the first number: ");
+        //This keeps loop running if the input isn't a double
+        while (!scan.hasNextDouble()) { 
+            System.out.println("Invalid input! Please enter a number only.");
+            scan.next(); 
+            System.out.print("Please enter the first number: ");
+        }
         double n1 = scan.nextDouble();
-        System.out.println("Please enter the second number: ");
+        System.out.print("Please enter the second number: ");
+        while (!scan.hasNextDouble()) {
+            System.out.println("Invalid input! Please enter a number only.");
+            scan.next(); 
+            System.out.print("Please enter the second number: ");
+        }
         double n2 = scan.nextDouble();
-
         //pass the numbers to the Calc object
         myCalculator.setNum1(n1);
         myCalculator.setNum2(n2);
@@ -33,6 +46,6 @@ public class Runner {
         //or if you don't, then just display the difference, product and quotient
         System.out.println("The difference is: " + myCalculator.subtract());
         System.out.println("The product is: " + myCalculator.multiply());
-        System.out.println("The quotient is: " + myCalculator.divide());
+        System.out.println("The quotient is: " + myCalculator.divide()); 
     }
 }
