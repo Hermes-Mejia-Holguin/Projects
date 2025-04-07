@@ -13,6 +13,8 @@ public class Runner {
             int missed;       // Number of questions missed
 
             // Get the number of questions on the exam
+            while(true){
+            try{
             input = JOptionPane.showInputDialog("How many questions are on the exam?");
             questions = Integer.parseInt(input);
 
@@ -27,10 +29,13 @@ public class Runner {
             String message = "Each question counts " + exam.getPointsEach();
             message += " points.\nThe exam score is " + exam.getScore();
             message += "\nThe exam grade is " + exam.getGrade();
-            JOptionPane.showMessageDialog(null, message);
-
-            System.exit(0);
+            JOptionPane.showMessageDialog(null, message);}
+            catch(NumberFormatException e){System.out.println("Error! Use numbers only.");}
+            catch(RuntimeException e){System.out.println("Error! Divided by 0");}
+            catch(Exception e){System.out.println("Error! Invalid input");}
+            finally{System.exit(0);}
+            
         }
     }
-
+}
 
